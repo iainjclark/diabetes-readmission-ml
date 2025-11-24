@@ -41,4 +41,8 @@ diabetes-readmission-ml/
 └── README.md
 ```
 
-
+### Install Pytest manually (optional; recommended)
+```
+conda activate diabetes-readmission-ml
+mamba install pytest
+```
