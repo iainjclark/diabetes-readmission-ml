@@ -1,7 +1,17 @@
+# ENVIRONMENT HYGIENE NOTE:
+# Jupyter Notebook / JupyterLab and ipykernel are intentionally excluded from this
+# base environment to keep runtime dependencies minimal and reproducible.
+# Install them separately if needed for development:
+#   mamba install -c conda-forge notebook
+#   python -m pip install ipykernel
+# You may also wish to create a cloned virtual environment diabetes-readmission-ml-jupyter
+# specifically for notebook development, to avoid polluting the primary environment.
+#
+
 # Core versions (stable for SHAP / LightGBM / XGBoost)
-numpy==1.23.5
-pandas==2.2.0
-scikit-learn==1.4.0
+numpy==1.23.5          # safest for LightGBM / XGBoost / SHAP
+pandas==2.2.0          # stable on numpy 1.23–1.26
+scikit-learn==1.4.0    # 1.3 or 1.4 both safe on py3.10
 
 # Tree-based ML frameworks
 xgboost==1.7.6         # fully stable on py3.10

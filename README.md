@@ -12,13 +12,24 @@ to support evidence-based operational decisions in clinical settings.
 mamba env create -f environment.yml
 conda activate diabetes-readmission-ml
 ```
-### After setting up the virtual environment (recommended)
+### Verify Package Versions within the Virtual Environment (optional; highly recommended)
 ```
 python scripts/version_check.py
 ```
 This confirms that installed packages match the pinned versions.
 
-### Initial directory structure
+### Enable Jupyter Notebook Support (optional; recommended)
+```
+conda activate diabetes-readmission-ml
+mamba install -c conda-forge notebook
+python -m pip install ipykernel ipywidget
+python -m ipykernel install --user --name diabetes-readmission-ml --display-name "Python (diabetes-readmission-ml)"
+jupyter notebook
+```
+A notebook called version_check.ipynb is provided within notebooks/ and serves as a good starting 
+point to verify that your environment is functioning correctly.
+
+### Initial Directory Structure
 ```
 diabetes-readmission-ml/
 ├── notebooks/
@@ -29,3 +40,5 @@ diabetes-readmission-ml/
 ├── requirements.txt
 └── README.md
 ```
+
+

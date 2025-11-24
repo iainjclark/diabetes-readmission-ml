@@ -1,3 +1,13 @@
+# ENVIRONMENT HYGIENE NOTE:
+# Jupyter Notebook / JupyterLab and ipykernel are intentionally excluded from this
+# base environment to keep runtime dependencies minimal and reproducible.
+# Install them separately if needed for development:
+#   mamba install -c conda-forge notebook
+#   python -m pip install ipykernel
+# You may also wish to create a cloned virtual environment diabetes-readmission-ml-jupyter
+# specifically for notebook development, to avoid polluting the primary environment.
+#
+
 name: diabetes-readmission-ml
 channels:
   - conda-forge
