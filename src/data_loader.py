@@ -7,14 +7,14 @@ Minimal utility for loading the diabetes readmission dataset from data/interim/.
 import os
 import pandas as pd
 
-INTERIM_DIR = "data/interim"
-DIABETES_DATA_CSV = "10k_diabetes.csv"
+INTERIM_DIR = "data\\interim"
+DIABETES_DATA_CSV = "10kDiabetes.csv"
 
-def load_diabetes_csv(filename):
+def load_diabetes_csv(filename, project_root=''):
     """
     Load the extracted diabetes dataset CSV from data/interim/.
     """
-    csv_path = os.path.join(INTERIM_DIR, filename)
+    csv_path = os.path.join(project_root, INTERIM_DIR, filename)
 
     if not os.path.exists(csv_path):
         raise FileNotFoundError(f"CSV file not found: {csv_path}")
