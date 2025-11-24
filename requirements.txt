@@ -1,0 +1,17 @@
+# Core versions (stable for SHAP / LightGBM / XGBoost)
+numpy==1.23.5
+pandas==2.2.0
+scikit-learn==1.4.0
+
+# Tree-based ML frameworks
+xgboost==1.7.6         # fully stable on py3.10
+lightgbm==4.3.0        # stable CPU wheel on py3.10
+
+# Explainability / viz
+shap==0.44.1           # stable with numpy 1.23 + LGBM/XGB, requires numpy <=1.24
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# Utilities
+joblib==1.4.0
+pyyaml==6.0.2

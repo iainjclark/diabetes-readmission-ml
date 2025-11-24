@@ -1,0 +1,25 @@
+name: diabetes-readmission-ml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  
+  # Core versions (stable for SHAP / LightGBM / XGBoost)
+  - numpy=1.23.5        # safest for LightGBM / XGBoost / SHAP
+  - pandas=2.2.0        # stable on numpy 1.23–1.26
+  - scikit-learn=1.4.0  # 1.3 or 1.4 both safe on py3.10
+  
+  # Tree-based ML frameworks
+  - xgboost=1.7.6       # fully stable on py3.10
+  - lightgbm=4.3.0      # stable CPU wheel on py3.10
+  
+  # Explainability / viz 
+  - shap=0.44.1         # stable with numpy 1.23 + LGBM/XGB, requires numpy <=1.24
+  - matplotlib=3.8.4
+  - seaborn=0.13.2
+  
+  # Utilities
+  - joblib=1.4.0
+  - pyyaml=6.0.2
+  - pip
+  
