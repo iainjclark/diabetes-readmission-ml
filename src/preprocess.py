@@ -11,7 +11,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
-def preprocess_impute_scale_encode(df):
+def preprocess_impute_scale_encode(df, target_col):
     """
     Given a raw DataFrame, apply preprocessing steps:
       - impute missing values
@@ -42,6 +42,9 @@ def preprocess_impute_scale_encode(df):
         ('cat', categorical_transformer, categorical_cols)
     ])
 
+    y = df[target_col].copy()
+    df = df.drop(columns=[target_col], errors='ignore')
+
     # Fit and transform the data
     transformed_array = preprocessor.fit_transform(df)
 
@@ -49,9 +52,15 @@ def preprocess_impute_scale_encode(df):
     feature_names = preprocessor.get_feature_names_out()
 
     # Return as DataFrame with original index
-    return pd.DataFrame(transformed_array,
+    df_preprocessed = pd.DataFrame(transformed_array,
                             index=df.index,
                             columns=feature_names)
+    
+    # Reattach target column
+    df_preprocessed[target_col] = y
+
+    return df_preprocessed
+
 
 if __name__ == "__main__":  
     pass
