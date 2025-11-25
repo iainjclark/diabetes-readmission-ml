@@ -2,6 +2,8 @@
 
 A modular, reproducible ML project for analysing 30-day readmission risk in diabetic patients, combining interpretable models with clear feature insights 
 to support evidence-based operational decisions in clinical settings.
+
+![CI Tests](https://github.com/iainjclark/diabetes-readmission-ml/actions/workflows/tests.yml/badge.svg)
   
 ---
 

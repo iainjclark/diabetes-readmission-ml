@@ -2,13 +2,12 @@ import os
 import pandas as pd
 from src.data_loader import load_diabetes_csv
 
-INTERIM_DIR = "data/interim"
+INTERIM_DIR = os.path.join("data", "interim")
 
 def test_csv_exists():
-    """Ensure the CSV file is present in data/interim/."""
+    """Ensure the CSV file is present in data\interim"""
     files = os.listdir(INTERIM_DIR)
-    assert any(f.endswith(".csv") for f in files), "No CSV file found in data/interim/"
-
+    assert any(f.endswith(".csv") for f in files), "No CSV file found in data\\interim"
 
 def test_load_csv():
     """Ensure the CSV loads correctly as a pandas DataFrame."""
