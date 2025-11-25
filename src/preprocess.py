@@ -5,6 +5,7 @@ Impute missing values, convert categorical features to numeric encodings, scale 
 """
 
 import os
+import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
@@ -29,6 +30,15 @@ def preprocess_impute_scale_encode(df, target_col):
         ('imputer', SimpleImputer(strategy='median')),
         ('scaler', StandardScaler())
     ])
+
+    # --- Fix mixed-type categorical data ---
+
+    # Replace literal question marks with NaN
+    df = df.replace('?', np.nan)
+
+    # Ensure all categorical columns are strings (to avoid mixed types)
+    for col in df.select_dtypes(include='object'):
+        df[col] = df[col].astype(str)    
 
     # Define preprocessing for categorical features
     categorical_transformer = Pipeline(steps=[
